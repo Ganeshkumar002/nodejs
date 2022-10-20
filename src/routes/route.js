@@ -68,6 +68,54 @@ router.post("/test-post-4", function(req, res) {
     let ele= req.body.element
     arr.push(ele)
     res.send(  { msg: arr , status: true }  )
-})
+}) 
+  
+// post assigmnt==================================================================================================
+
+
+    let players = [
+    {
+       "name": "Ganesh",
+      "dob": "10/08/2000",
+      "gender" : "male",
+      "city": "Bihar",
+      "sports": ["Cricket"],
+    },
+    {
+      "name": "Abhishek",
+      "dob": "02/01/2000",
+      "gender": "male",
+      "city": "UP",
+      "sports": ["Volleyball"],
+    },
+    {
+      "name": "Pankaj",
+      "dob": "11/08/2001",
+      "gender": "male",
+      "city": "Kolkata",
+      "sports": ["swimming"],
+    }
+  ];
+
+  router.post('/players', function(req,res){
+    const body = req.body
+    playersDetails=players.find(player => player.name===body.name)
+    if(playersDetails){
+        res.send({massage:"player already exist"})
+    }else 
+    { players.push(body)
+
+        res.send(players)
+            
+    }
+
+  })
+  
+
+
 
 module.exports = router;
+
+
+
+
