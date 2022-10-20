@@ -110,7 +110,53 @@ router.post("/test-post-4", function(req, res) {
     }
 
   })
-  
+       
+
+// ===============================================================================assimnt 2  params vs query
+
+  let persons= [
+    {
+    name: "PK",
+    age: 10,
+    votingStatus: false
+ },
+ {
+    name: "SK",
+    age: 20,
+    votingStatus: false
+ },
+ {
+    name: "AA",
+    age: 70,
+    votingStatus: false
+ },
+ {
+    name: "SC",
+    age: 5,
+    votingStatus: false
+ },
+ {
+    name: "HO",
+    age: 40,
+    votingStatus: false
+ }
+]
+router.post('/person',function(req,res){
+    const votingAge =req.query.votingAge//we are acccesing deta (voting value)send via qurey param
+
+    const updatedpersons=[]
+    persons.forEach((person) =>{
+        if(person.age >votingAge){
+          person.votingStatus =true
+          updatedpersons.push(person)
+
+        }
+
+    })
+    return res.send({updatedpersons : updatedpersons})
+})
+    
+// adding this comment for no reason
 
 
 
