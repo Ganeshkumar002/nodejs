@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-mongoose.connect("mongodb+srv://functionup-cohort:G0Loxqc9wFEGyEeJ@cluster0.rzotr.mongodb.net/Pritesh8769811-DB?retryWrites=true&w=majority", {
+mongoose.connect("mongodb+srv://ganeshkr002:M8mJDXmcwFbmg8tV@assigmntproject.x8wgtkt.mongodb.net/Ganesh3", {
     useNewUrlParser: true
 })
 .then( () => console.log("MongoDb is connected"))
@@ -16,6 +16,14 @@ mongoose.connect("mongodb+srv://functionup-cohort:G0Loxqc9wFEGyEeJ@cluster0.rzot
 
 app.use (
     function (req, res, next) {
+        let dateobj = new Date();
+        let date =(dateobj.getDate())
+        let month=((dateobj.getMonth()+1))
+        let year =dateobj.getFullYear();
+        let hours=dateobj.getHours();
+        let minuts=dateobj.getMinutes();
+        let seconds=dateobj.getSeconds();
+        console.log(year + "-" + month +"-" + date + "-"+ hours +":"+ minuts + ":"+ seconds  );
         console.log ("inside GLOBAL MW");
         next();
   }

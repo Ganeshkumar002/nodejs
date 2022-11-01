@@ -58,5 +58,16 @@ router.get("/basicRoute", commonMW.mid1, commonMW.mid2, commonMW.mid3, commonMW.
 
 
 
+// assigmnt 1
+router.get("/middleware",function(req,res){
+    data = req.ip
+    let path = req.path
+
+    console.log(data,`,`,path);
+    res.send("my 1st ever api!")
+}
+
+)
+
 
 module.exports = router;
